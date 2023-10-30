@@ -1,0 +1,34 @@
+{{dump(r)}}
+    <h1>Reader </h1>
+
+     <table border="2">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>UsernameR</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reader in r %}
+            <tr>
+                <td>{{ reader.id }}</td>
+                <td>{{ reader.usernameR }}</td>
+                
+                <td>
+                    <a href="{{ path('updateReader', {'id': reader.id}) }}">edit</a>
+                    <a href="{{ path('deleteReader', {'id': reader.id}) }}">delete</a>
+                    <a href="{{ path('show', {'id': reader.id}) }}">show</a>
+                   
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('addR') }}">Create new</a>
+
